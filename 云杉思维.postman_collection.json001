@@ -1,0 +1,576 @@
+{
+	"id": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+	"name": "云杉思维 copy",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "76150848-f499-1e11-379c-56626df9552f",
+			"name": "云杉测试",
+			"description": "",
+			"order": [
+				"644b97d5-15d3-66e0-50f2-d2bfe3fe5a65",
+				"190b26bb-5f05-f0f9-cd6f-7623ecae8114",
+				"9461a2e4-c343-8fba-e01d-24ba75283633",
+				"147f73f9-f8f4-bfa2-0836-f9a6b298d940",
+				"b621696f-3218-67be-7a56-42782cfd9f87",
+				"209fe1e6-2c3c-eb0b-9d2c-1ebc2fbdfd50",
+				"1c08f5bc-6597-d019-f61c-9e00ac3414f4",
+				"e5e35f8a-b91d-afa7-19bb-9cd93565dc14",
+				"75653241-a977-c42e-f149-374bc4ff34a0",
+				"9e54868e-431c-b11b-2750-accf3d0e50ce"
+			],
+			"owner": 0,
+			"collectionId": "853aee7d-d225-6b76-20bb-8e66c7638ad0"
+		}
+	],
+	"timestamp": 1498400447065,
+	"owner": 0,
+	"public": false,
+	"hasRequests": true,
+	"requests": [
+		{
+			"id": "147f73f9-f8f4-bfa2-0836-f9a6b298d940",
+			"headers": "",
+			"headerData": [],
+			"url": "http://www.4snow.cn/Business/Cust/go/op/add",
+			"queryParams": [],
+			"preRequestScript": "var date = new Date().getTime();\n\nvar xinming = \"liujianbo\"+date;\n\n\npostman.setGlobalVariable(\"name\",xinming);",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "cust[name]",
+					"value": "{{name}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[tel1]",
+					"value": "111",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": "var result=JSON.parse(responseBody);\n\nvar ids=result.data.id;\n\npostman.setGlobalVariable(\"id\", ids);\n\ntests[\"status 0\"]=result.status===0;\n\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498637173028,
+			"name": "新增客户",
+			"description": "",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"responses": []
+		},
+		{
+			"id": "190b26bb-5f05-f0f9-cd6f-7623ecae8114",
+			"headers": "",
+			"headerData": [],
+			"url": "http://www.4snow.cn/Home/Index/go/op/updatepwd",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "password",
+					"value": "123456",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "newpwd",
+					"value": "123456",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar result=JSON.parse(responseBody);\n\ntests[\"密码修改成功\"]=result.data===\"修改密码成功！\";",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498637085390,
+			"name": "修改密码",
+			"description": "",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"responses": []
+		},
+		{
+			"id": "1c08f5bc-6597-d019-f61c-9e00ac3414f4",
+			"headers": "",
+			"headerData": [],
+			"url": "{{test}}/Business/Enum/go/op/load",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"data": [
+				{
+					"key": "keys",
+					"value": "me_anashopsaleempscope",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "运营分析—订单分析",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1498447852447,
+			"version": 2,
+			"responses": [],
+			"tests": "var result=JSON.parse(responseBody);\n\ntests[\"状态码为0\"]=result.status===0\ntests[\"数据为6320\"]=result.data.me_anashopsaleempscope.emp===\"6320\"",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "76150848-f499-1e11-379c-56626df9552f"
+		},
+		{
+			"id": "209fe1e6-2c3c-eb0b-9d2c-1ebc2fbdfd50",
+			"headers": "",
+			"headerData": [],
+			"url": "{{test}}/Business/Newcarwarehouse/go/op/unionquery",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"data": [
+				{
+					"key": "page",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "20",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "order",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "od_et",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "车辆查找",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1498447087681,
+			"version": 2,
+			"responses": [],
+			"tests": "var result=JSON.parse(responseBody);\n\ntests[\"状态码为0\"]=result.status===0\n\n\ntests[\"新车名字新翼虎245尊翼型\"]=result.data.list[0].model_name===\"新翼虎245尊翼型\"",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "76150848-f499-1e11-379c-56626df9552f"
+		},
+		{
+			"id": "644b97d5-15d3-66e0-50f2-d2bfe3fe5a65",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "{{url}}/Home/Index/go/op/login?isLoginname=false&login={{login}}&pwd={{pwd}}",
+			"queryParams": [
+				{
+					"key": "isLoginname",
+					"value": "false",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "login",
+					"value": "{{login}}",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "pwd",
+					"value": "{{pwd}}",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "\nvar result=JSON.parse(responseBody);\n\ntests[\"status 0\"]=result.status === 0;\n\n\ntests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498636895966,
+			"name": "登录",
+			"description": "",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"responses": [],
+			"rawModeData": ""
+		},
+		{
+			"id": "75653241-a977-c42e-f149-374bc4ff34a0",
+			"headers": "",
+			"headerData": [],
+			"url": "http://www.4snow.cn/Business/Cust/go/op/delete",
+			"queryParams": [],
+			"preRequestScript": "",
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "id",
+					"value": "{{id}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var result=JSON.parse(responseBody)\ntests[\"status 0\"]=result.status===0\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498637198852,
+			"name": "删除客户",
+			"description": "",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"responses": []
+		},
+		{
+			"id": "9461a2e4-c343-8fba-e01d-24ba75283633",
+			"headers": "",
+			"headerData": [],
+			"url": "http://www.4snow.cn/Admin/Category/go/op/queryCates",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "page",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "size",
+					"value": "20",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cate",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "shopid",
+					"value": "3",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "shopname",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "brand_id",
+					"value": "7",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "qt",
+					"value": "m",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "is_sale",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\n\nvar result=JSON.parse(responseBody);\n\ntests[\"status 0\"]=result.status===0;\n",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498637087852,
+			"name": "查询新车型",
+			"description": "",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"responses": []
+		},
+		{
+			"id": "9e54868e-431c-b11b-2750-accf3d0e50ce",
+			"headers": "",
+			"headerData": [],
+			"url": "{{test}}/Business/Cart/go/op/create",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "customer[name]",
+					"value": "{{name}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "customer[id ]",
+					"value": "{{id}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "customer[sex]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "customer[Tel]",
+					"value": "123456789",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "customer[email]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "customer[$$hashKey]",
+					"value": "object:9397",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "sale_type",
+					"value": "1",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"tests": "var result=JSON.parse(responseBody\n\ntests[\"状态码为0\"]=result.status===0",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498451617122,
+			"name": "选购—新车选购—新建购物车",
+			"description": "",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"responses": [],
+			"folder": "76150848-f499-1e11-379c-56626df9552f"
+		},
+		{
+			"id": "b621696f-3218-67be-7a56-42782cfd9f87",
+			"headers": "",
+			"headerData": [],
+			"url": "http://www.4snow.cn/Business/Cust/go/op/update",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [
+				{
+					"key": "sale[]",
+					"value": "6320",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[id]",
+					"value": "{{id}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[name]",
+					"value": "{{name}}",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[createName]",
+					"value": "销顾test",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[ptype]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[pid]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[sex]",
+					"value": " 女",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[birthday]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[qq]",
+					"value": "12345",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[email]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[address]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[postcode]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[tel1]",
+					"value": "123456789",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "cust[tel2]",
+					"value": "",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "var result=JSON.parse(responseBody);\n\ntests[\"status 0\"]=result.status===0\n\ntests[\"创建人为：销顾\"]=result.data.creater_name===\"销顾\"",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1498637306357,
+			"name": "更改客户信息",
+			"description": "",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"responses": []
+		},
+		{
+			"id": "e5e35f8a-b91d-afa7-19bb-9cd93565dc14",
+			"headers": "",
+			"headerData": [],
+			"url": "{{test}}/Business/Cart/go/op/carts",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "04d1195d-bcdf-fca5-b0ab-4bd7cc721810",
+			"data": [
+				{
+					"key": "gts",
+					"value": "1497835470551",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"name": "选购—新车选购",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1498449982102,
+			"version": 2,
+			"responses": [],
+			"tests": "var result=JSON.parse(responseBody)\n\ntests[\"状态码为0\"]=result.status===0\ntests[\"商店名\"]=result.data.list[0].saleman.org_name===\"东城天道\"",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "76150848-f499-1e11-379c-56626df9552f"
+		}
+	]
+}
